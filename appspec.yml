@@ -3,6 +3,12 @@ os: linux
 files:
   - source: /UnitConversion.java
     destination: /var/www/html
+permissions:
+   -object: /var/www/html/deploy_hooks
+    mode: 755
+    pattern: "**"
+    owner: ubuntu
+    group: ubuntu
 hooks:
   BeforeInstall:
     - location: scripts/install_dependencies.sh
